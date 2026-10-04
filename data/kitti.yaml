@@ -1,0 +1,6 @@
+# Data files are downloaded or prepared locally and are never committed.
+path: datasets/kitti-yolo
+train: images/train
+val: images/val
+nc: 4
+names: [Car, Van, Truck, Tram]

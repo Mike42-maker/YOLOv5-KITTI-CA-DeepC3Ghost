@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+venv/
+.venv/
+env/
+ENV/
+
+# IDE and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# YOLO outputs and experiment artifacts
+runs/
+wandb/
+tensorboard/
+*.cache
+cache/
+logs/
+*.log
+
+# Datasets and archives
+datasets/
+KITTI/
+kitti/
+data_object_*.zip
+*.zip
+
+# Model weights and exported artifacts
+*.pt
+*.pth
+*.onnx
+*.engine
+*.torchscript
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak

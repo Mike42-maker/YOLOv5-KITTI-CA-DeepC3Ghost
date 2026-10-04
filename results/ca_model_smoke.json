@@ -1,0 +1,85 @@
+{
+  "torch": "2.6.0+cu126",
+  "cuda_available": true,
+  "input_shape": [
+    1,
+    3,
+    640,
+    640
+  ],
+  "ca": {
+    "parameters": 7040449,
+    "prediction_shape": [
+      1,
+      25200,
+      9
+    ],
+    "raw_output_shapes": [
+      [
+        1,
+        3,
+        80,
+        80,
+        9
+      ],
+      [
+        1,
+        3,
+        40,
+        40,
+        9
+      ],
+      [
+        1,
+        3,
+        20,
+        20,
+        9
+      ]
+    ],
+    "flops": 15970401280,
+    "macs": 7985200640
+  },
+  "baseline": {
+    "parameters": 7030417,
+    "prediction_shape": [
+      1,
+      25200,
+      9
+    ],
+    "raw_output_shapes": [
+      [
+        1,
+        3,
+        80,
+        80,
+        9
+      ],
+      [
+        1,
+        3,
+        40,
+        40,
+        9
+      ],
+      [
+        1,
+        3,
+        20,
+        20,
+        9
+      ]
+    ],
+    "flops": 15969075200,
+    "macs": 7984537600
+  },
+  "ca_locations": {
+    "P3": "layer 18, after layer 17 PANet P3/8 C3 output",
+    "P4": "layer 22, after layer 21 PANet P4/16 C3 output",
+    "detect_inputs": [
+      18,
+      22,
+      25
+    ]
+  }
+}
