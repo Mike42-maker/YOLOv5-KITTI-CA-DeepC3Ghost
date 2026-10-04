@@ -1,3 +1,3 @@
-model,parameters,gflops_640,latency_ms,fps,measurement
-YOLOv5s Baseline,7030417,15.9691,5.9062,169.31,"RTX 4060 Laptop GPU; FP32; batch=1; 50 warmup + 500 timed forwards"
-CA + Deep-C3Ghost,5962273,14.0021,6.2604,159.73,"RTX 4060 Laptop GPU; FP32; batch=1; 50 warmup + 500 timed forwards"
+model,parameters,gflops_640,latency_ms,fps,measurement,source
+YOLOv5s Baseline,7030417,15.9691,5.9062,169.31,"RTX 4060 Laptop GPU; FP32; batch=1; 50 warmup + 500 timed forwards","final paper comparison protocol; detailed measurement"
+CA + Deep-C3Ghost,5962273,14.0021,6.2604,159.73,"RTX 4060 Laptop GPU; FP32; batch=1; 50 warmup + 500 timed forwards","final paper comparison protocol; detailed measurement"

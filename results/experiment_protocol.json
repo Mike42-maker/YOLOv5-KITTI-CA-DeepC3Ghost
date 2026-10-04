@@ -1,12 +1,17 @@
 {
   "dataset": "KITTI-derived four-class YOLO dataset",
-  "classes": ["Car", "Van", "Truck", "Tram"],
+  "classes": [
+    "Car",
+    "Van",
+    "Truck",
+    "Tram"
+  ],
   "validation": {
     "image_size": 640,
     "batch_size": 8,
     "epochs": 100,
     "seed": 42,
-    "metrics_source": "unified validation summary"
+    "metrics_source": "final paper ablation table"
   },
   "forward_benchmark": {
     "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
@@ -15,6 +20,7 @@
     "warmup_forwards": 50,
     "timed_forwards": 500,
     "includes_nms": false,
-    "includes_io": false
+    "includes_io": false,
+    "metrics_source": "final paper comparison table protocol; detailed values in benchmark_summary.csv"
   }
 }

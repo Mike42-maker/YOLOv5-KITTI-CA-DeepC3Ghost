@@ -65,7 +65,8 @@
     python -m venv .venv
     .venv\Scripts\activate
     python -m pip install --upgrade pip
-    python -m pip install --extra-index-url https://download.pytorch.org/whl/cu126 -r requirements.txt
+    python -m pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu126
+    python -m pip install -r requirements.txt
 
 仓库不包含预训练权重，请自行下载或提供本地 checkpoint。
 
@@ -91,16 +92,18 @@ YOLOv5s baseline：
 
 ## 最终实验结果
 
-验证设置为 640x640 输入、batch size 8、100 epochs、seed 42 和固定 KITTI 派生数据划分。下表来自已记录的项目汇总结果。
+下表严格按 2026-10-04 提交的最终论文消融表取值：640x640 输入、batch size 8、100 epochs、seed 42 和固定 KITTI 派生数据划分。最终模型的选择依据是相对于 YOLOv5s baseline 的 accuracy-complexity trade-off；不声称它在所有消融模型中精度最高，因为 CA 单独模型的 mAP50-95 为 0.734。
 
 | 模型 | P | R | mAP50 | mAP50-95 | 参数量 | GFLOPs |
 |---|---:|---:|---:|---:|---:|---:|
-| YOLOv5s Baseline | 0.9250 | 0.8850 | 0.9560 | 0.6940 | 7,030,417 | 15.9691 |
-| CA | 0.9351 | 0.9015 | 0.9654 | 0.7340 | 7,040,449 | 15.9729 |
-| C3Ghost | 0.9373 | 0.8726 | 0.9536 | 0.7016 | 4,904,953 | 10.6025 |
-| CA + C3Ghost | 0.9301 | 0.8750 | 0.9530 | 0.6950 | 4,914,985 | 10.6038 |
-| CA + Backbone-C3Ghost | 0.9206 | 0.8910 | 0.9589 | 0.7132 | 5,877,561 | 12.5652 |
-| **CA + Deep-C3Ghost** | **0.9503** | 0.8993 | **0.9651** | **0.7244** | **5,962,273** | **14.0046** |
+| YOLOv5s Baseline | 0.925 | 0.885 | 0.956 | 0.694 | 7.03M | 15.97 |
+| CA | 0.935 | 0.901 | 0.965 | 0.734 | 7.04M | 15.97 |
+| C3Ghost | 0.937 | 0.873 | 0.954 | 0.702 | 4.90M | 10.60 |
+| CA + Full-C3Ghost | 0.930 | 0.875 | 0.953 | 0.695 | 4.91M | 10.60 |
+| CA + Backbone-C3Ghost | 0.921 | 0.891 | 0.959 | 0.713 | 5.88M | 12.57 |
+| **CA + Deep-C3Ghost** | 0.950 | 0.899 | 0.965 | 0.724 | 5.96M | 14.00 |
+
+下面的详细 forward benchmark 遵循论文中报告的相同协议；额外小数位是测量细节，与四舍五入后的主结果表分开保存。
 
 RTX 4060 Laptop GPU 上的 batch=1 FP32 forward 测试：
 
